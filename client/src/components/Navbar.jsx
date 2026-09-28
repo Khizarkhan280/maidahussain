@@ -1,0 +1,90 @@
+import { useState } from "react";
+
+const LogoMark = () => (
+  <span className="mark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="13" r="7" />
+      <path d="M12 9v4l2.5 2.5M9 3l3-1 3 1" />
+    </svg>
+  </span>
+);
+
+const Chevron = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+    <path d="M6 9l6 6 6-6" />
+  </svg>
+);
+
+const MOBILE_LINKS = [
+  { label: "Services", hasChevron: true },
+  { label: "Business Challenges", hasChevron: true },
+  { label: "Company", hasChevron: true },
+  { label: "Industries", hasChevron: true },
+  { label: "Resources", hasChevron: true },
+  { label: "Apps", hasChevron: true },
+  { label: "Case Studies", hasChevron: false },
+  { label: "Contact", hasChevron: false },
+];
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <>
+      <header>
+        <nav>
+          <div className="logo">
+            <img src="https://247labs.com/wp-content/uploads/2023/03/Group-10.png" alt="Logo" />
+          </div>
+          <div className="navlinks">
+            <a href="#" className="has-chevron">Services</a>
+            <a href="#" className="has-chevron">Company</a>
+            <a href="#" className="has-chevron">Industries</a>
+            <a href="#" className="has-chevron">Resources</a>
+            <a href="#">Case Studies</a>
+          </div>
+          <div className="nav-right">
+            <div className="expert-btn">
+              <span className="label">Talk to an Expert</span>
+              <span className="num">1-877-247-7421</span>
+            </div>
+            <button className="btn-solid">Contact Us</button>
+            <button className="burger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
+        <div className="mm-top">
+          <div className="logo">
+            <LogoMark />
+            247 Labs
+          </div>
+          <div className="mm-expert">
+            <span className="label">Talk to an Expert →</span>
+            <span className="num">1-877-247-7421</span>
+          </div>
+          <button className="btn-solid" style={{ padding: "11px 16px" }}>
+            Contact Us
+          </button>
+          <button className="mm-close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#1c1c24" strokeWidth="2.4">
+              <path d="M4 4l16 16M20 4L4 20" />
+            </svg>
+          </button>
+        </div>
+        <div className="mm-links">
+          {MOBILE_LINKS.map((link) => (
+            <a href="#" key={link.label}>
+              {link.label} {link.hasChevron && <Chevron />}
+            </a>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
