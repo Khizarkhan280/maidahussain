@@ -1,5 +1,5 @@
 :root {
-  --purple: #78137C;
+  --purple: #78137c;
   --purple-dark: #4a1560;
   --purple-light: #8b3bab;
   --navy: #0b1626;
@@ -7,7 +7,7 @@
   --teal-1: #3fb6c4;
   --teal-2: #1f7a75;
 
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
 
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -17,6 +17,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -29,7 +33,7 @@ h1,
 h2,
 h3,
 .brand {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 img {
@@ -41,18 +45,28 @@ a {
   text-decoration: none;
 }
 
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
 .wrap {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 32px;
 }
 
-/* ---------- NAV ---------- */
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
 header {
   position: sticky;
   top: 0;
   z-index: 50;
+
   background: #fff;
   border-bottom: 1px solid #eee;
 }
@@ -60,23 +74,32 @@ header {
 nav {
   display: flex;
   align-items: center;
+
   width: 100%;
   max-width: 1400px;
+
   margin: 0 auto;
-  padding: 8px 72px;      /* left = right = 72px */
+
+  padding: 8px 72px;
+
   min-height: 74px;
 }
 
-/* LOGO */
+
+/* ---------- LOGO ---------- */
+
 .logo {
   display: flex;
   align-items: center;
+
   gap: 8px;
+
   flex-shrink: 0;
 
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
+
   color: var(--purple);
 }
 
@@ -99,26 +122,26 @@ nav {
   height: 16px;
 }
 
-/* If you replace the text/logo with an image */
-
 .logo img {
   display: block;
+
   width: auto;
   height: 42px;
+
   object-fit: contain;
 }
 
-/* NAV LINKS */
+
+/* ---------- NAV LINKS ---------- */
 
 .navlinks {
   display: flex;
   align-items: center;
+
   gap: 32px;
 
-  /* closer to logo */
-  margin-left: 100px;
+  margin-left: 80px;
 
-  /* don't stretch across remaining space */
   flex: none;
 }
 
@@ -130,7 +153,8 @@ nav {
 
   gap: 5px;
 
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
+
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
@@ -144,13 +168,14 @@ nav {
 }
 
 .navlinks a:hover {
-  color: rgb(120, 19, 124);
+  color: var(--purple);
 }
 
-/* Dropdown arrow only for links having .has-chevron */
+
+/* ---------- DROPDOWN ARROW ---------- */
 
 .navlinks a.has-chevron::after {
-  content: '';
+  content: "";
 
   width: 5px;
   height: 5px;
@@ -161,20 +186,22 @@ nav {
   transform: rotate(45deg) translateY(-2px);
 }
 
-/* RIGHT SIDE */
+
+/* ---------- RIGHT SIDE ---------- */
 
 .nav-right {
   display: flex;
   align-items: center;
+
   gap: 19px;
 
-  /* push buttons to the right edge */
   margin-left: auto;
 
   flex-shrink: 0;
 }
 
-/* TALK TO AN EXPERT */
+
+/* ---------- TALK TO AN EXPERT ---------- */
 
 .expert-btn {
   display: flex;
@@ -214,9 +241,11 @@ nav {
 .expert-btn .label {
   color: var(--purple);
 
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
+
   font-size: 13px;
   font-weight: 500;
+
   line-height: 16px;
 }
 
@@ -225,13 +254,16 @@ nav {
 
   color: #1c1c24;
 
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
+
   font-size: 15px;
   font-weight: 700;
+
   line-height: 18px;
 }
 
-/* CONTACT US */
+
+/* ---------- CONTACT US ---------- */
 
 .btn-solid {
   display: flex;
@@ -246,7 +278,8 @@ nav {
   background: var(--purple);
   color: #fff;
 
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
+
   font-size: 15px;
   font-weight: 700;
 
@@ -261,16 +294,18 @@ nav {
 }
 
 .btn-solid:hover {
-  background: var(--purple);
+  background: var(--purple-dark);
   transform: translateY(-3px);
 }
 
-/* BURGER */
+
+/* ---------- BURGER ---------- */
 
 .burger {
   display: none;
 
   flex-direction: column;
+
   gap: 5px;
 
   background: none;
@@ -290,22 +325,26 @@ nav {
   border-radius: 2px;
 }
 
-/* TABLET */
+
+/* =========================================================
+   NAVIGATION - TABLET
+   ========================================================= */
 
 @media (max-width: 1100px) {
   nav {
     padding: 8px 32px;
+
     gap: 20px;
   }
 
   .navlinks {
     gap: 22px;
-    margin-left: 15px;    /* closer to logo */
+    margin-left: 25px;
   }
 
   .nav-right {
     gap: 12px;
-    margin-left: auto;    /* push buttons to right */
+    margin-left: auto;
   }
 
   .expert-btn {
@@ -315,14 +354,12 @@ nav {
   .btn-solid {
     min-width: 115px;
   }
-  .hero-inner {
-    padding-left: 180px;  /* logo 32px hai, gap ~148px */
-    padding-right: 32px;
-    max-width: 700px;
-  }
 }
 
-/* MOBILE */
+
+/* =========================================================
+   NAVIGATION - MOBILE
+   ========================================================= */
 
 @media (max-width: 960px) {
   .navlinks,
@@ -340,16 +377,15 @@ nav {
 
   nav {
     min-height: 70px;
+
     padding: 8px 20px;
-  }
-  .hero-inner {
-    padding-left: 40px;   /* logo 20px hai, gap ~20px */
-    padding-right: 20px;
-    max-width: 100%;
   }
 }
 
-/* ---------- MOBILE MENU ---------- */
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
 
 .mobile-menu {
   position: fixed;
@@ -360,6 +396,7 @@ nav {
   z-index: 100;
 
   transform: translateY(-100%);
+
   transition: transform 0.32s ease;
 
   overflow-y: auto;
@@ -404,6 +441,7 @@ nav {
     padding: 5px 12px;
 
     text-align: center;
+
     line-height: 1.2;
   }
 
@@ -439,6 +477,7 @@ nav {
   justify-content: center;
 
   cursor: pointer;
+
   flex-shrink: 0;
 }
 
@@ -472,49 +511,64 @@ nav {
   border-bottom: none;
 }
 
-/* ---------- HERO ---------- */
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
   position: relative;
 
-  min-height: 92vh;
+  min-height: calc(100vh - 74px);
 
   display: flex;
   align-items: center;
 
-  /* Darker, moody blue gradient fading to the right */
+  color: #fff;
+
   background:
     linear-gradient(
       90deg,
       rgba(4, 11, 26, 0.96) 0%,
-      rgba(4, 11, 26, 0.85) 40%,
-      rgba(4, 11, 26, 0.3) 100%
+      rgba(4, 11, 26, 0.88) 35%,
+      rgba(4, 11, 26, 0.52) 65%,
+      rgba(4, 11, 26, 0.22) 100%
     ),
-    /* Professional business meeting image */
-    url('https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1600&auto=format&fit=crop')
-      center / cover no-repeat;
+    url("./assets/HeroBg.avif")
+      center center / cover no-repeat;
 
-  color: #fff;
-
-  padding: 140px 0 90px;
+  padding: 100px 0 80px;
 }
+
+
+/* ---------- HERO CONTENT ---------- */
 
 .hero-inner {
-  /* max-width: 820px; */
-  /* Center hatane ke liye margin auto remove kiya */
-  margin-left: 0;
-  margin-right: auto;
-  /* Logo ki padding (72px) se zyada padding left di */
-  padding-left: 350px;
-  padding-right: 32px;
+  width: 100%;
+
+  max-width: 1240px;
+
+  margin: 0 auto;
+
+  padding: 0 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
+
+/* ---------- EYEBROW ---------- */
+
 .eyebrow {
-  color: #c084fc; /* Brighter purple to pop against dark bg */
+  color: #c084fc;
 
   font-weight: 700;
+
   letter-spacing: 0.12em;
+
   font-size: 0.8rem;
+  line-height: 1.3;
 
   text-transform: uppercase;
 
@@ -525,11 +579,22 @@ nav {
   animation: riseIn 0.7s ease forwards;
 }
 
+
+/* ---------- HERO HEADING ---------- */
+
 .hero h1 {
-  font-size: clamp(2.5rem, 4.8vw, 3.8rem);
+  width: 100%;
+
+  max-width: 760px;
+
+  font-size: clamp(2.5rem, 4.6vw, 3.8rem);
+
   font-weight: 800;
+
   line-height: 1.12;
+
   letter-spacing: -0.02em;
+
   margin-bottom: 28px;
 
   opacity: 0;
@@ -537,11 +602,20 @@ nav {
   animation: riseIn 0.7s ease 0.12s forwards;
 }
 
+
+/* ---------- HERO DESCRIPTION ---------- */
+
 .hero p {
-  font-size: 1.1rem;
+  width: 100%;
+
+  max-width: 620px;
+
+  font-size: 1.05rem;
+
   line-height: 1.6;
-  color: #cbd5e1; /* Slate-300 for better contrast */
-  max-width: 640px;
+
+  color: #cbd5e1;
+
   margin-bottom: 42px;
 
   opacity: 0;
@@ -549,10 +623,17 @@ nav {
   animation: riseIn 0.7s ease 0.24s forwards;
 }
 
+
+/* ---------- HERO BUTTONS ---------- */
+
 .hero-ctas {
   display: flex;
+  align-items: center;
+
   gap: 16px;
+
   flex-wrap: wrap;
+
   margin-bottom: 64px;
 
   opacity: 0;
@@ -560,51 +641,82 @@ nav {
   animation: riseIn 0.7s ease 0.36s forwards;
 }
 
-/* BUTTONS - Increased padding to match image 2 */
 .btn-white {
-  background: #ffffff;
-  color: #0f172a; /* Dark navy text */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+
+  color: #0f172a;
+
   font-weight: 700;
+
   padding: 18px 36px;
-  border-radius: 2px; /* Sharp, corporate look */
+
+  border-radius: 2px;
+
   font-size: 0.95rem;
-  transition: all 0.2s ease;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .btn-white:hover {
   background: #f1f5f9;
+
   transform: translateY(-2px);
 }
 
 .btn-outline {
-  border: 1.5px solid #ffffff;
-  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #fff;
+
+  color: #fff;
+
   font-weight: 700;
+
   padding: 18px 36px;
+
   border-radius: 2px;
+
   font-size: 0.95rem;
-  transition: all 0.2s ease;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .btn-outline:hover {
   background: rgba(255, 255, 255, 0.1);
+
   transform: translateY(-2px);
 }
 
-/* TRUST ROW - Ratings, ISO badges, etc. */
+
+/* ---------- TRUST ROW ---------- */
+
 .trust-row {
   display: flex;
   align-items: center;
-  gap: 24px;
+
+  gap: 20px;
+
   flex-wrap: wrap;
 
-  /* Small, uppercase, letter-spaced text like in image 2 */
   font-size: 0.72rem;
+
   font-weight: 700;
+
   letter-spacing: 0.08em;
+
   text-transform: uppercase;
 
-  color: #94a3b8; /* Muted slate color */
+  color: #94a3b8;
 
   opacity: 0;
 
@@ -613,20 +725,24 @@ nav {
 
 .trust-row .div {
   width: 1px;
-  height: 14px; /* Taller divider line */
-  background: #334155; /* Darker slate for divider */
+  height: 14px;
+
+  background: #334155;
 }
 
-/* YELLOW STAR COLORS */
 .trust-row .stars {
-  color: #fbbf24; /* Amber/Yellow */
+  color: #fbbf24;
+
   letter-spacing: 2px;
+
   margin-left: 6px;
 }
 
 .trust-row a {
   text-decoration: none;
+
   color: inherit;
+
   transition: color 0.2s ease;
 }
 
@@ -634,19 +750,274 @@ nav {
   color: #cbd5e1;
 }
 
+
+/* =========================================================
+   HERO - TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .hero {
+    min-height: calc(100vh - 70px);
+
+    padding: 90px 0 70px;
+
+    background-position: 60% center;
+  }
+
+  .hero-inner {
+    max-width: 100%;
+
+    margin: 0;
+
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .hero h1 {
+    max-width: 700px;
+
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+  }
+
+  .hero p {
+    max-width: 580px;
+  }
+}
+
+
+/* =========================================================
+   HERO - MOBILE
+   ========================================================= */
+
+@media (max-width: 960px) {
+  .hero {
+    min-height: auto;
+
+    padding: 75px 0 60px;
+
+    align-items: flex-start;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4, 11, 26, 0.95) 0%,
+        rgba(4, 11, 26, 0.84) 50%,
+        rgba(4, 11, 26, 0.46) 100%
+      ),
+      url("https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1600&auto=format&fit=crop")
+        68% center / cover no-repeat;
+  }
+
+  .hero-inner {
+    width: 100%;
+
+    max-width: 100%;
+
+    margin: 0;
+
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .eyebrow {
+    max-width: 300px;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.1em;
+
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    max-width: 650px;
+
+    font-size: clamp(2.3rem, 8vw, 3.2rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.025em;
+
+    margin-bottom: 22px;
+  }
+
+  .hero p {
+    max-width: 560px;
+
+    font-size: 0.98rem;
+
+    line-height: 1.55;
+
+    margin-bottom: 32px;
+  }
+
+  .hero-ctas {
+    width: 100%;
+
+    gap: 12px;
+
+    margin-bottom: 40px;
+  }
+
+  .btn-white,
+  .btn-outline {
+    padding: 15px 22px;
+
+    font-size: 0.9rem;
+
+    text-align: center;
+  }
+
+  .trust-row {
+    gap: 12px;
+
+    font-size: 0.64rem;
+  }
+
+  .trust-row .div {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   HERO - SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+
+    padding: 60px 0 50px;
+
+    background-position: 70% center;
+  }
+
+  .hero-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .eyebrow {
+    max-width: 280px;
+
+    font-size: 0.68rem;
+
+    line-height: 1.3;
+
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+
+    font-size: clamp(2.05rem, 10vw, 2.7rem);
+
+    line-height: 1.08;
+
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    max-width: 100%;
+
+    font-size: 0.92rem;
+
+    line-height: 1.55;
+
+    margin-bottom: 28px;
+  }
+
+  .hero-ctas {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+
+    margin-bottom: 35px;
+  }
+
+  .btn-white,
+  .btn-outline {
+    width: 100%;
+
+    padding: 15px 18px;
+
+    text-align: center;
+  }
+
+  .trust-row {
+    max-width: 340px;
+
+    gap: 10px 14px;
+
+    font-size: 0.6rem;
+  }
+}
+
+
+/* =========================================================
+   HERO - VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .hero {
+    padding-top: 50px;
+
+    padding-bottom: 45px;
+
+    background-position: 72% center;
+  }
+
+  .hero-inner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.87rem;
+  }
+
+  .btn-white,
+  .btn-outline {
+    font-size: 0.84rem;
+
+    padding: 14px 16px;
+  }
+
+  .trust-row {
+    font-size: 0.58rem;
+  }
+}
+
+
+/* ---------- HERO ANIMATION ---------- */
+
 @keyframes riseIn {
   from {
     opacity: 0;
+
     transform: translateY(16px);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0);
   }
 }
 
-/* ---------- CONTACT ---------- */
+
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
 
 .contact-banner {
   background:
@@ -994,7 +1365,7 @@ nav {
   color: #555;
 }
 
-.fake-captcha input[type='checkbox'] {
+.fake-captcha input[type="checkbox"] {
   width: 18px;
   height: 18px;
 }
@@ -1057,7 +1428,10 @@ nav {
   }
 }
 
-/* ---------- DISCOVER SECTION ---------- */
+
+/* =========================================================
+   DISCOVER SECTION
+   ========================================================= */
 
 .discover {
   background:
@@ -1076,7 +1450,7 @@ nav {
 }
 
 .discover h2 {
-  font-family: 'Baloo 2', sans-serif;
+  font-family: "Baloo 2", sans-serif;
 
   font-size: clamp(2.1rem, 4.4vw, 3rem);
 
@@ -1088,7 +1462,7 @@ nav {
 }
 
 .discover .sub {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 
   color: #e3faf8;
 
@@ -1137,7 +1511,7 @@ nav {
 
   font-size: 0.95rem;
 
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 
   color: #333;
 
@@ -1157,7 +1531,7 @@ nav {
 
   font-weight: 700;
 
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 
   font-size: 0.92rem;
 
@@ -1233,7 +1607,7 @@ nav {
 
   font-weight: 800;
 
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 
   padding: 4px 11px;
 
@@ -1251,7 +1625,7 @@ nav {
 }
 
 .tcard h3 {
-  font-family: 'Baloo 2', sans-serif;
+  font-family: "Baloo 2", sans-serif;
 
   font-size: 1.25rem;
 
@@ -1261,7 +1635,7 @@ nav {
 }
 
 .tcard p {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 
   font-size: 0.86rem;
 
@@ -1283,7 +1657,7 @@ nav {
 
   font-weight: 700;
 
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 
   font-size: 0.8rem;
 
@@ -1384,7 +1758,7 @@ nav {
 }
 
 .finance-foot .share-label {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 
   font-size: 0.78rem;
 
@@ -1469,7 +1843,10 @@ nav {
   }
 }
 
-/* ---------- FOOTER ---------- */
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
   background: #fff;
@@ -1558,6 +1935,7 @@ footer {
 
 .foot-social a:hover {
   background: var(--purple);
+
   color: #fff;
 }
 
