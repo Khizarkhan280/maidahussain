@@ -60,7 +60,7 @@ export default function Contact() {
             </span>
             <span className="info">
               <span className="lbl">CALL US AT</span>
-              <span className="val">1-877-247-7421</span>
+              <span className="val">+92 300 1234567</span>
             </span>
           </a>
 

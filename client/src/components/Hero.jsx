@@ -33,7 +33,7 @@ export default function Hero() {
           </div>
 
           {/* ---------- TRUST ROW (under the buttons) ---------- */}
-          <div className="hero-trust">
+          {/* <div className="hero-trust">
             <div className="hero-trust-inner">
               <span className="trust-item">ISO 9001</span>
               <span className="trust-item">ISO 27001</span>
@@ -44,7 +44,7 @@ export default function Hero() {
                 Clutch 4.7 <span className="stars">★★★★★</span>
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* ---------- RIGHT: clean image, no overlays ---------- */}
