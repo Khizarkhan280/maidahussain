@@ -31,7 +31,7 @@ export default function Footer() {
 
       <div className="foot-social">
         <a href="#" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24">
+          <svg viewBox="-1.8 0.5 22 24">
             <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7.3c0-1.74-.03-3.98-2.43-3.98-2.43 0-2.8 1.9-2.8 3.86V24h-4V8z" />
           </svg>
         </a>

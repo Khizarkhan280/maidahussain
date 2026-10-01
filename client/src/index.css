@@ -707,7 +707,62 @@ nav {
 }
 
 
-/* ---------- VISUAL ---------- */
+/* ---------- TRUST ROW (under the buttons) ---------- */
+
+.hero-trust {
+  --sep: 22px; /* space on each side of the divider */
+  margin-top: 36px;
+  overflow: hidden; /* clips the divider of any item that starts a line */
+  padding-bottom: 4px; /* keeps the underline from being clipped */
+
+  opacity: 0;
+  animation: riseIn 0.7s ease 0.48s forwards;
+}
+
+.hero-trust-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 14px;
+  /* pulls each line's first item left so its border and padding sit off-screen */
+  margin-left: calc(-1 * (var(--sep) + 1px));
+}
+
+.trust-item {
+  padding-left: var(--sep);
+  padding-right: 0;
+  margin-right: var(--sep);
+  border-left: 1px solid var(--line-2);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: #e6f3f1;
+  white-space: nowrap;
+}
+
+.trust-link {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1.5px;
+  transition: color 0.2s ease;
+}
+
+.trust-link:hover {
+  color: var(--accent);
+}
+
+.trust-link .stars {
+  margin-left: 4px;
+  color: #fbbf24;
+  letter-spacing: 2px;
+}
+
+
+/* ---------- VISUAL (clean image, no overlays) ---------- */
 
 .hero-visual {
   position: relative;
@@ -760,108 +815,6 @@ nav {
   box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.75);
 }
 
-.hv-badges {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  z-index: 2;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-}
-
-.hv-badges .pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  padding: 8px 14px;
-
-  border: 1px solid var(--line-2);
-  border-radius: 999px;
-
-  background: rgba(6, 36, 33, 0.6);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-.hv-badges .pill svg {
-  width: 15px;
-  height: 15px;
-  color: var(--accent);
-}
-
-.hv-card {
-  position: absolute;
-  left: -28px;
-  bottom: 28px;
-  z-index: 2;
-
-  display: flex;
-  align-items: center;
-  gap: 18px;
-
-  padding: 16px 22px;
-
-  border: 1px solid var(--line-2);
-  border-radius: 18px;
-
-  background: rgba(6, 36, 33, 0.72);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-
-  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.7);
-}
-
-.hv-card .rating {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: transform 0.2s ease;
-}
-
-.hv-card .rating:hover {
-  transform: translateY(-2px);
-}
-
-.hv-card .rating strong {
-  font-family: var(--font-head);
-  font-size: 2rem;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--accent);
-}
-
-.hv-card .rating > span {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.hv-card .rating b {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.hv-card .stars {
-  color: #fbbf24;
-  font-size: 0.72rem;
-  letter-spacing: 2px;
-}
-
-.hv-divider {
-  width: 1px;
-  align-self: stretch;
-  background: var(--line-2);
-}
-
 
 /* ---------- HERO: TABLET ---------- */
 
@@ -884,10 +837,6 @@ nav {
     justify-self: center;
     max-width: 560px;
     aspect-ratio: 4 / 3.4;
-  }
-
-  .hv-card {
-    left: 18px;
   }
 }
 
@@ -942,30 +891,25 @@ nav {
     padding: 15px 18px;
   }
 
+  .hero-trust {
+    --sep: 14px;
+    margin-top: 28px;
+  }
+
+  /* .hero-trust-inner {
+    row-gap: 14px;
+  } */
+
+  .trust-item {
+    font-size: 0.72rem;
+  }
+
   .hero-visual {
     aspect-ratio: 4 / 4.2;
   }
 
   .hero-visual::before {
     inset: -10px 10px 10px -10px;
-  }
-
-  .hv-badges {
-    top: 14px;
-    right: 14px;
-  }
-
-  .hv-card {
-    left: 12px;
-    right: 12px;
-    bottom: 14px;
-    justify-content: space-between;
-    padding: 14px 16px;
-    gap: 12px;
-  }
-
-  .hv-card .rating strong {
-    font-size: 1.6rem;
   }
 }
 
@@ -1717,7 +1661,6 @@ nav {
 
 /* =========================================================
    CONTACT PAGE EXTRAS: BENEFITS / PROCESS + LOCATIONS
-   (paste into index.css, e.g. just above the POLICIES section)
    ========================================================= */
 
 /* ---------- shared heading pieces ---------- */
