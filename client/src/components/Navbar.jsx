@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const LogoMark = () => (
   <span className="mark">
@@ -23,19 +24,20 @@ const MOBILE_LINKS = [
   { label: "Resources", hasChevron: true },
   { label: "Apps", hasChevron: true },
   { label: "Case Studies", hasChevron: false },
-  { label: "Contact", hasChevron: false },
+  { label: "Contact", hasChevron: false, to: "/contact" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
       <header>
         <nav>
-          <div className="logo">
+          <Link to="/" className="logo" aria-label="Home">
             <img src="https://247labs.com/wp-content/uploads/2023/03/Group-10.png" alt="Logo" />
-          </div>
+          </Link>
           <div className="navlinks">
             <a href="#" className="has-chevron">Services</a>
             <a href="#" className="has-chevron">Products</a>
@@ -49,7 +51,9 @@ export default function Navbar() {
               <span className="label">Talk to an Expert</span>
               <span className="num">1-877-247-7421</span>
             </div>
-            <button className="btn-solid">Contact Us</button>
+            <Link to="/contact" className="btn-solid">
+              Contact Us
+            </Link>
             <button className="burger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
               <span></span>
               <span></span>
@@ -61,29 +65,35 @@ export default function Navbar() {
 
       <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
         <div className="mm-top">
-          <div className="logo">
+          <Link to="/" className="logo" onClick={closeMenu}>
             <LogoMark />
             247 Labs
-          </div>
+          </Link>
           <div className="mm-expert">
             <span className="label">Talk to an Expert →</span>
             <span className="num">1-877-247-7421</span>
           </div>
-          <button className="btn-solid" style={{ padding: "11px 16px" }}>
+          <Link to="/contact" className="btn-solid" style={{ padding: "11px 16px" }} onClick={closeMenu}>
             Contact Us
-          </button>
-          <button className="mm-close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
+          </Link>
+          <button className="mm-close" aria-label="Close menu" onClick={closeMenu}>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#1c1c24" strokeWidth="2.4">
               <path d="M4 4l16 16M20 4L4 20" />
             </svg>
           </button>
         </div>
         <div className="mm-links">
-          {MOBILE_LINKS.map((link) => (
-            <a href="#" key={link.label}>
-              {link.label} {link.hasChevron && <Chevron />}
-            </a>
-          ))}
+          {MOBILE_LINKS.map((link) =>
+            link.to ? (
+              <Link to={link.to} key={link.label} onClick={closeMenu}>
+                {link.label} {link.hasChevron && <Chevron />}
+              </Link>
+            ) : (
+              <a href="#" key={link.label}>
+                {link.label} {link.hasChevron && <Chevron />}
+              </a>
+            )
+          )}
         </div>
       </div>
     </>
