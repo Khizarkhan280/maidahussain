@@ -77,7 +77,7 @@ export default function Navbar() {
             Contact Us
           </Link>
           <button className="mm-close" aria-label="Close menu" onClick={closeMenu}>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#1c1c24" strokeWidth="2.4">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4">
               <path d="M4 4l16 16M20 4L4 20" />
             </svg>
           </button>
