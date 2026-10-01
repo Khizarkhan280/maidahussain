@@ -1073,6 +1073,11 @@ nav {
   margin-bottom: 14px;
 }
 
+.contact-left {
+  position: sticky;
+  top: 96px; /* navbar (74px) + a little breathing room, matches your screenshot */
+}
+
 .contact-left h2 {
   font-family: "Inter", sans-serif;
   font-size: clamp(2.2rem, 4.2vw, 3.4rem);
@@ -1334,6 +1339,10 @@ nav {
 }
 
 @media (max-width: 860px) {
+  .contact-left {
+    position: static;
+  }
+  
   .contact-banner {
     padding: 60px 0;
   }
@@ -1353,6 +1362,12 @@ nav {
 
   .contact-card .val {
     font-size: 1.05rem;
+  }
+}
+
+@media (max-height: 560px) {
+  .contact-left {
+    position: static;
   }
 }
 
