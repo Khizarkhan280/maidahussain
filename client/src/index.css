@@ -1274,18 +1274,99 @@ nav {
   background: rgba(2, 16, 15, 0.45);
 }
 
-.fake-captcha .l {
+.captcha-left {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.85rem;
+  gap: 12px;
+  min-width: 0;
+
+  background: none;
+  border: none;
   color: var(--muted);
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
 }
 
-.fake-captcha input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--accent);
+.captcha-left:focus-visible {
+  outline: none;
+}
+
+.cap-box {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+  background: rgba(2, 16, 15, 0.55);
+
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.captcha-left:hover .cap-box.idle,
+.captcha-left:focus-visible .cap-box {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(53, 228, 182, 0.14);
+}
+
+/* loading: box fades away, a spinner takes its place */
+.cap-box.loading,
+.cap-box.verified {
+  border-color: transparent;
+  background: transparent;
+}
+
+.cap-box.loading::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 3px solid rgba(53, 228, 182, 0.2);
+  border-top-color: var(--accent);
+  animation: capSpin 0.8s linear infinite;
+}
+
+/* verified: green check draws itself in */
+.cap-box svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  animation: capCheck 0.35s ease forwards;
+}
+
+.cap-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+
+  font-size: 0.62rem;
+  line-height: 1.1;
+  color: var(--subtle);
+}
+
+.cap-brand svg {
+  width: 26px;
+  height: 26px;
+}
+
+@keyframes capSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes capCheck {
+  to { stroke-dashoffset: 0; }
 }
 
 .send-btn {

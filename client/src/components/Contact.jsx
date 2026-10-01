@@ -19,13 +19,26 @@ const MailIcon = () => (
 export default function Contact() {
   const [form, setForm] = useState(EMPTY_FORM);
   const [status, setStatus] = useState({ state: "idle", message: "" });
+  const [captcha, setCaptcha] = useState("idle"); // idle | loading | verified
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleCaptcha = () => {
+    if (captcha !== "idle") return;
+    setCaptcha("loading");
+    setTimeout(() => setCaptcha("verified"), 1200);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (captcha !== "verified") {
+      setStatus({ state: "error", message: "Please confirm you're not a robot." });
+      return;
+    }
+
     setStatus({ state: "loading", message: "" });
     try {
       const res = await fetch("/api/leads", {
@@ -47,6 +60,7 @@ export default function Contact() {
       }
       setStatus({ state: "success", message: "Thanks — we'll be in touch shortly." });
       setForm(EMPTY_FORM);
+      setCaptcha("idle");
     } catch (err) {
       setStatus({
         state: "error",
@@ -131,13 +145,38 @@ export default function Contact() {
                 required
               />
             </div>
+
+            {/* ---- captcha ---- */}
             <div className="fake-captcha">
-              <span className="l">
-                <input type="checkbox" required />
+              <button
+                type="button"
+                className="captcha-left"
+                onClick={handleCaptcha}
+                role="checkbox"
+                aria-checked={captcha === "verified"}
+                aria-busy={captcha === "loading"}
+              >
+                <span className={`cap-box ${captcha}`}>
+                  {captcha === "verified" && (
+                    <svg viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 12.5l5 5L20 6.5" />
+                    </svg>
+                  )}
+                </span>
                 I'm not a robot
+              </button>
+
+              <span className="cap-brand">
+                <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" stroke="var(--cyan)" />
+                  <path d="M21 3v5h-5" stroke="var(--cyan)" />
+                  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" stroke="var(--accent)" />
+                  <path d="M8 16H3v5" stroke="var(--accent)" />
+                </svg>
+                reCAPTCHA
               </span>
-              <span style={{ fontSize: ".7rem", color: "#999" }}>reCAPTCHA</span>
             </div>
+
             <button className="send-btn" type="submit" disabled={status.state === "loading"}>
               {status.state === "loading" ? "Sending…" : "Send"}
             </button>
