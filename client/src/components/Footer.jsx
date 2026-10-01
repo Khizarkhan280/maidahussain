@@ -1,18 +1,34 @@
 export default function Footer() {
   return (
     <footer>
+      {/* Fixed cookie button: stays in the bottom-left corner on every part of the page */}
+      <button type="button" className="cookie-btn" aria-label="Cookie settings">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          {/* cookie body with bites */}
+          <path d="M20.6 10.5A9 9 0 1 1 13.5 3.4A2.5 2.5 0 0 0 16.5 7A2.5 2.5 0 0 0 20.6 10.5Z" />
+          {/* crumbs */}
+          <circle cx="8" cy="9" r="0.9" fill="#fff" stroke="none" />
+          <circle cx="7.5" cy="14.5" r="0.9" fill="#fff" stroke="none" />
+          <circle cx="12" cy="6.5" r="0.7" fill="#fff" stroke="none" />
+          {/* check mark */}
+          <path d="M9.5 14l2.5 2.5 5-5.5" />
+        </svg>
+      </button>
+
       <div className="foot-left">
-        <span className="fmark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-            <circle cx="12" cy="13" r="7" />
-            <path d="M12 9v4l2.5 2.5" />
-          </svg>
-        </span>
         <span>@ Copyright 2004-2024 247 Labs</span>
         <a href="#">Terms &amp; Conditions</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Refund Policy</a>
       </div>
+
       <div className="foot-social">
         <a href="#" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24">

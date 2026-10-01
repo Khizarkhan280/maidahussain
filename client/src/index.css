@@ -1895,7 +1895,10 @@ footer {
 
   border-top: 1px solid #eee;
 
-  padding: 22px 32px;
+  min-height: 77px;
+
+  /* left padding leaves room for the fixed cookie button (15px + 46px + 60px gap) */
+  padding: 12px clamp(20px, 10vw, 152px) 12px 121px;
 
   display: flex;
 
@@ -1908,24 +1911,21 @@ footer {
   gap: 14px;
 }
 
-.foot-left {
-  display: flex;
 
-  align-items: center;
+/* ---------- FIXED COOKIE BUTTON ---------- */
 
-  gap: 20px;
+.cookie-btn {
+  position: fixed;
 
-  flex-wrap: wrap;
+  left: 15px;
+  bottom: 15px;
 
-  font-size: 0.85rem;
+  z-index: 90;
 
-  color: #444;
-}
+  width: 46px;
+  height: 46px;
 
-.foot-left .fmark {
-  width: 30px;
-  height: 30px;
-
+  border: none;
   border-radius: 50%;
 
   background: var(--purple);
@@ -1935,32 +1935,72 @@ footer {
   align-items: center;
 
   justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
-.foot-left .fmark svg {
-  width: 14px;
-  height: 14px;
+.cookie-btn:hover {
+  background: var(--purple-dark);
 
-  stroke: #fff;
+  transform: scale(1.06);
+}
+
+.cookie-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+
+/* ---------- LEFT: COPYRIGHT + LINKS ---------- */
+
+.foot-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 14px;
+
+  color: #444;
 }
 
 .foot-left a {
   color: #444;
+
+  transition: color 0.2s ease;
 }
+
+.foot-left a:hover {
+  color: var(--purple);
+}
+
+
+/* ---------- RIGHT: SOCIAL ICONS ---------- */
 
 .foot-social {
   display: flex;
 
-  gap: 10px;
+  gap: 20px;
 }
 
 .foot-social a {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
 
   border-radius: 50%;
 
-  background: #f1e6f7;
+  background: #f3e5f5;
 
   display: flex;
 
@@ -1982,8 +2022,23 @@ footer {
 }
 
 .foot-social svg {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
 
   fill: currentColor;
+}
+
+
+@media (max-width: 700px) {
+  footer {
+    padding: 14px 20px 14px 76px;
+  }
+
+  .foot-left {
+    gap: 8px 16px;
+  }
+
+  .foot-social {
+    gap: 12px;
+  }
 }
