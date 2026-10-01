@@ -32,14 +32,28 @@ export default function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      const data = await res.json();
+
+      // The body may be empty or not JSON (for example when the dev proxy can't reach the server)
+      let data = {};
+      try {
+        data = await res.json();
+      } catch {
+        /* ignore */
+      }
+
       if (!res.ok) {
         throw new Error(data.error || "Something went wrong. Please try again.");
       }
       setStatus({ state: "success", message: "Thanks — we'll be in touch shortly." });
       setForm(EMPTY_FORM);
     } catch (err) {
-      setStatus({ state: "error", message: err.message });
+      setStatus({
+        state: "error",
+        message:
+          err instanceof TypeError
+            ? "We couldn't reach the server. Please check your connection and try again."
+            : err.message,
+      });
     }
   };
 
@@ -54,7 +68,7 @@ export default function Contact() {
             potential collaborations, we're here to listen and provide the support you need.
           </p>
 
-          <a className="contact-card" href="tel:18772477421">
+          <a className="contact-card" href="tel:+92 300 1234567">
             <span className="icon-box">
               <PhoneIcon />
             </span>
@@ -75,7 +89,7 @@ export default function Contact() {
           </a>
         </div>
 
-        {/* ---- form card: unchanged ---- */}
+        {/* ---- form card ---- */}
         <div className="contact-form-card">
           <h3>Schedule A Free Consultation</h3>
           <div className="card-divider">

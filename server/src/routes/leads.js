@@ -5,28 +5,33 @@ const router = Router();
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Only accept real strings; anything else (numbers, objects, arrays) becomes "" and fails validation with a 400
+const clean = (v) => (typeof v === "string" ? v.trim() : "");
+
 // POST /api/leads  -> create a new lead from the contact form
 router.post("/", async (req, res) => {
   try {
-    const { fullName, company, email, phone, message } = req.body;
+    const body = req.body || {};
+    const fullName = clean(body.fullName);
+    const company = clean(body.company);
+    const email = clean(body.email).toLowerCase();
+    const phone = clean(body.phone);
+    const message = clean(body.message);
 
-    if (!fullName || !fullName.trim()) {
+    if (!fullName) {
       return res.status(400).json({ error: "Full name is required." });
     }
     if (!email || !EMAIL_RE.test(email)) {
       return res.status(400).json({ error: "A valid company email is required." });
     }
-    if (!message || !message.trim()) {
+    if (!message) {
       return res.status(400).json({ error: "Message is required." });
     }
+    if (fullName.length > 120 || company.length > 160 || email.length > 254 || phone.length > 40 || message.length > 5000) {
+      return res.status(400).json({ error: "One of the fields is too long." });
+    }
 
-    const lead = await Lead.create({
-      fullName: fullName.trim(),
-      company: (company || "").trim(),
-      email: email.trim().toLowerCase(),
-      phone: (phone || "").trim(),
-      message: message.trim(),
-    });
+    const lead = await Lead.create({ fullName, company, email, phone, message });
 
     res.status(201).json({ ok: true, id: lead._id });
   } catch (err) {
