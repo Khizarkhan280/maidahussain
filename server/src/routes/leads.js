@@ -1,5 +1,6 @@
 import { Router } from "express";
 import Lead from "../models/Lead.js";
+import { sendLeadNotification } from "../mailer.js";
 
 const router = Router();
 
@@ -33,8 +34,13 @@ router.post("/", async (req, res) => {
 
     const lead = await Lead.create({ fullName, company, email, phone, message });
 
+    // Fire-and-forget: a mail failure must never lose the lead or fail the request
+    sendLeadNotification(lead).catch((err) =>
+    console.error("Lead notification email failed:", err.message)
+    );
+
     res.status(201).json({ ok: true, id: lead._id });
-  } catch (err) {
+    } catch (err) {
     console.error("Error creating lead:", err);
     res.status(500).json({ error: "Something went wrong. Please try again." });
   }

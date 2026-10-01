@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CONTACT } from "../config/contact";
 
 const EMPTY_FORM = { fullName: "", company: "", email: "", phone: "", message: "" };
 
@@ -68,23 +69,23 @@ export default function Contact() {
             potential collaborations, we're here to listen and provide the support you need.
           </p>
 
-          <a className="contact-card" href="tel:+92 300 1234567">
+          <a className="contact-card" href={`tel:${CONTACT.phoneHref}`}>
             <span className="icon-box">
               <PhoneIcon />
             </span>
             <span className="info">
               <span className="lbl">CALL US AT</span>
-              <span className="val">+92 300 1234567</span>
+              <span className="val">{CONTACT.phone}</span>
             </span>
           </a>
 
-          <a className="contact-card" href="mailto:hello@247labs.com">
+          <a className="contact-card" href={`mailto:${CONTACT.email}`}>
             <span className="icon-box">
               <MailIcon />
             </span>
             <span className="info">
               <span className="lbl">EMAIL US</span>
-              <span className="val">hello@247labs.com</span>
+              <span className="val">{CONTACT.email}</span>
             </span>
           </a>
         </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { CONTACT } from "../config/contact";
 
 const LogoMark = () => (
   <span className="mark">
@@ -12,6 +13,7 @@ const LogoMark = () => (
 
 const Chevron = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+
     <path d="M6 9l6 6 6-6" />
   </svg>
 );
@@ -47,10 +49,10 @@ export default function Navbar() {
             <a href="#">Case Studies</a>
           </div>
           <div className="nav-right">
-            <div className="expert-btn">
+            <a className="expert-btn" href={`tel:${CONTACT.phoneHref}`}>
               <span className="label">Talk to an Expert</span>
-              <span className="num">+92 300 1234567</span>
-            </div>
+              <span className="num">{CONTACT.phone}</span>
+            </a>
             <Link to="/contact" className="btn-solid">
               Contact Us
             </Link>
@@ -69,10 +71,10 @@ export default function Navbar() {
             <LogoMark />
             247 Labs
           </Link>
-          <div className="mm-expert">
+          <a className="mm-expert" href={`tel:${CONTACT.phoneHref}`}>
             <span className="label">Talk to an Expert →</span>
-            <span className="num">+92 300 1234567</span>
-          </div>
+            <span className="num">{CONTACT.phone}</span>
+          </a>
           <Link to="/contact" className="btn-solid" style={{ padding: "11px 16px" }} onClick={closeMenu}>
             Contact Us
           </Link>
