@@ -75,7 +75,7 @@ export default function Navbar() {
             <span className="label">Talk to an Expert →</span>
             <span className="num">{CONTACT.phone}</span>
           </a>
-          <Link to="/contact" className="btn-solid" style={{ padding: "11px 16px" }} onClick={closeMenu}>
+          <Link to="/contact" className="btn-solid" onClick={closeMenu}>
             Contact Us
           </Link>
           <button className="mm-close" aria-label="Close menu" onClick={closeMenu}>

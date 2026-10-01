@@ -25,7 +25,7 @@ export default function Hero() {
 
           <div className="hero-ctas">
             <a href="#contact" className="btn-primary">
-              Start a Strategic Conversation <ArrowIcon />
+              <span>Start a Strategic Conversation</span> <ArrowIcon />
             </a>
             <a href="#" className="btn-ghost">
               See Enterprise Work

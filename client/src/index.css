@@ -152,6 +152,7 @@ section[id] {
 .btn-primary svg {
   width: 17px;
   height: 17px;
+  flex-shrink: 0;
   transition: transform 0.2s ease;
 }
 
@@ -203,7 +204,8 @@ nav {
   max-width: 1400px;
 
   margin: 0 auto;
-  padding: 8px 72px;
+  /* 72px at 1400px+ → shrinks smoothly → 20px at 960px */
+  padding: 8px clamp(20px, calc(20px + (100vw - 960px) * 0.1182), 72px);
   min-height: 74px;
 }
 
@@ -256,8 +258,10 @@ nav {
 .navlinks {
   display: flex;
   align-items: center;
-  gap: 32px;
-  margin-left: 80px;
+  /* gap between links: 32px → 16px */
+  gap: clamp(16px, calc(16px + (100vw - 960px) * 0.0364), 32px);
+  /* gap between logo and links: 80px → 12px */
+  margin-left: clamp(12px, calc(12px + (100vw - 960px) * 0.1545), 80px);
   flex: none;
 }
 
@@ -410,16 +414,6 @@ nav {
 /* ---------- NAV: TABLET ---------- */
 
 @media (max-width: 1100px) {
-  nav {
-    padding: 8px 32px;
-    gap: 20px;
-  }
-
-  .navlinks {
-    gap: 22px;
-    margin-left: 25px;
-  }
-
   .nav-right {
     gap: 12px;
     margin-left: auto;
@@ -437,7 +431,9 @@ nav {
 
 /* ---------- NAV: MOBILE ---------- */
 
-@media (max-width: 960px) {
+/* ---------- NAV: MOBILE ---------- */
+
+@media (max-width: 1170px) {
   .navlinks,
   .expert-btn {
     display: none;
@@ -453,7 +449,27 @@ nav {
 
   nav {
     min-height: 70px;
-    padding: 8px 20px;
+  }
+
+  .btn-solid {
+    min-width: 110px;
+    min-height: 44px;
+    padding: 10px 18px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-right {
+    gap: 8px;
+  }
+
+  .btn-solid {
+    min-width: 0;
+    min-height: 38px;
+    padding: 8px 14px;
+    font-size: 13px;
   }
 }
 
@@ -505,6 +521,14 @@ nav {
 
 .mm-expert {
   display: none;
+}
+
+.mobile-menu .mm-top .btn-solid {
+  min-width: 0;
+  min-height: 38px;
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 10px;
 }
 
 @media (min-width: 520px) {
@@ -885,6 +909,10 @@ nav {
     align-items: stretch;
   }
 
+  .btn-primary {
+    text-align: center;
+  }
+
   .btn-primary,
   .btn-ghost {
     width: 100%;
@@ -916,6 +944,16 @@ nav {
 @media (max-width: 400px) {
   .hero h1 {
     font-size: 1.95rem;
+  }
+
+  .btn-primary {
+    font-size: 0.85rem;
+    gap: 8px;
+    padding: 15px 14px;
+  }
+
+  .btn-primary span {
+    white-space: nowrap;
   }
 }
 
@@ -958,7 +996,7 @@ nav {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 40px;
   align-items: start;
 
@@ -1065,6 +1103,7 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  min-width: 0; /* lets the text shrink inside the flex card */
 }
 
 .contact-card .lbl {
@@ -1077,6 +1116,7 @@ nav {
   font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
+  overflow-wrap: anywhere; /* long email wraps instead of overflowing */
 }
 
 
@@ -1305,9 +1345,15 @@ nav {
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 36px;
     padding: 0 24px;
+  }
+
+  /* scales with the screen: 38px at 860px, ~30px at 400px, 24px minimum */
+  .contact-left h2 {
+    font-size: clamp(1.5rem, 7.5vw, 2.4rem);
+    margin-bottom: 18px;
   }
 
   .contact-form-card {
@@ -1322,6 +1368,54 @@ nav {
 
   .contact-card .val {
     font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-banner {
+    padding: 48px 0;
+  }
+
+  .contact-grid {
+    padding: 0 20px;
+  }
+
+  .contact-left > p {
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
+  .contact-card {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .contact-card .icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+
+  .contact-card .icon-box svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .contact-card .val {
+    font-size: 0.95rem;
+  }
+
+  .contact-form-card {
+    padding: 24px 16px 20px;
+    border-radius: 20px;
+  }
+
+  .contact-form-card h3 {
+    font-size: clamp(1.1rem, 5.4vw, 1.45rem);
+  }
+
+  .fake-captcha {
+    gap: 8px;
   }
 }
 
