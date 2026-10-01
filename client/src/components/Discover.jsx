@@ -1,64 +1,84 @@
 export default function Discover() {
   return (
     <section className="discover">
-      <div className="wrap">
-        <h2>Discover. Learn. Enjoy</h2>
-        <p className="sub">platform for creatives around the world</p>
-        <form className="search-bar" onSubmit={(e) => e.preventDefault()}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="11" cy="11" r="7" />
-            <path d="M21 21l-4.3-4.3" />
-          </svg>
-          <input type="text" placeholder="Design, Code, Marketing, Finance …" />
-          <button type="submit">Search</button>
-        </form>
+      {/* ---------- dark blue top band: heading + search ---------- */}
+      <div className="discover-top">
+        <div className="wrap">
+          <h2>Discover. Learn. Enjoy</h2>
+          <p className="sub">platform for creatives around the world</p>
+          <form className="search-bar" onSubmit={(e) => e.preventDefault()}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" />
+            </svg>
+            <input type="text" placeholder="Design, Code, Marketing, Finance ..." />
+            <button type="submit">Search</button>
+          </form>
+        </div>
       </div>
 
+      {/* ---------- cards (overlap the band / mint area) ---------- */}
       <div className="wrap">
         <div className="topic-cards">
+          {/* Web Design card */}
           <div className="tcard web">
             <span className="badge">14</span>
             <h3>Web Design</h3>
-            <p>When you search for free CSS templates, you will notice that TemplateMo is one of the best websites.</p>
-            <div className="web-illustration">
-              <div className="browser">
-                <div className="dots">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div className="bar"></div>
-                <div className="bar short"></div>
-              </div>
-              <div className="avatars">
-                <span className="dot">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-                    <circle cx="12" cy="8" r="3.2" />
-                    <path d="M5 20c1.5-4 4.2-6 7-6s5.5 2 7 6" />
-                  </svg>
-                </span>
-                <span className="dot">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-                    <circle cx="12" cy="8" r="3.2" />
-                    <path d="M5 20c1.5-4 4.2-6 7-6s5.5 2 7 6" />
-                  </svg>
-                </span>
-              </div>
+            <p>
+              When you search for free CSS templates, you will notice that TemplateMo is one of the best
+              websites.
+            </p>
+
+            <div className="web-art">
+              <svg viewBox="0 0 260 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                {/* soft background blob */}
+                <circle cx="150" cy="74" r="44" fill="#eef0f5" />
+
+                {/* browser header: dots, line, menu */}
+                <g fill="#23262f">
+                  <circle cx="66" cy="9" r="2.4" />
+                  <circle cx="74" cy="9" r="2.4" />
+                  <circle cx="82" cy="9" r="2.4" />
+                </g>
+                <path d="M184 6h10M184 10h10" stroke="#23262f" strokeWidth="1.6" strokeLinecap="round" />
+                <path d="M58 17h138" stroke="#cfd4de" strokeWidth="1.2" />
+
+                {/* laptop */}
+                <rect x="40" y="48" width="84" height="48" rx="5" fill="#fff" stroke="#23262f" strokeWidth="1.6" />
+                <path d="M52 104h64" stroke="#12a4ec" strokeWidth="4" strokeLinecap="round" />
+                <circle cx="82" cy="74" r="7" fill="#12a4ec" />
+                <path d="M68 96c1-9 7-13 14-13s13 4 14 13z" fill="#23262f" />
+
+                {/* small tablet with character */}
+                <rect x="140" y="60" width="40" height="30" rx="4" fill="#fff" stroke="#23262f" strokeWidth="1.6" />
+                <circle cx="160" cy="72" r="6" fill="#23262f" />
+                <path d="M153.5 72a6.5 6.5 0 0 1 13 0" fill="none" stroke="#12a4ec" strokeWidth="2" strokeLinecap="round" />
+                <path d="M184 62h26" stroke="#12a4ec" strokeWidth="3" strokeLinecap="round" />
+                <circle cx="148" cy="96" r="2.5" fill="#23262f" />
+                <circle cx="172" cy="96" r="2.5" fill="#23262f" />
+
+                {/* avatar */}
+                <circle cx="150" cy="118" r="9" fill="#fff" stroke="#23262f" strokeWidth="1.6" />
+                <circle cx="150" cy="115" r="3" fill="#23262f" />
+                <path d="M143.5 124c.8-4 3.4-5.5 6.5-5.5s5.7 1.5 6.5 5.5z" fill="#23262f" />
+              </svg>
             </div>
           </div>
 
+          {/* Finance card */}
           <div className="tcard finance">
             <span className="badge">25</span>
             <h3>Finance</h3>
             <p>
-              Topic Listing Template includes homepage, listing page, detail page, and contact page. Feel free to
-              edit and adapt for your CMS.
+              Topic Listing Template includes homepage, listing page, detail page, and contact page. You can
+              feel free to edit and adapt for your CMS requirements.
             </p>
             <a className="learn" href="#">
               Learn More
             </a>
+
             <div className="finance-foot">
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div className="share">
                 <span className="share-label">Share:</span>
                 <span className="socials">
                   <a href="#" aria-label="Twitter">
@@ -78,7 +98,8 @@ export default function Discover() {
                   </a>
                 </span>
               </div>
-              <span className="bookmark">
+
+              <span className="bookmark" aria-label="Bookmark">
                 <svg viewBox="0 0 24 24">
                   <path d="M6 3h12v18l-6-4-6 4V3z" />
                 </svg>
@@ -87,7 +108,6 @@ export default function Discover() {
           </div>
         </div>
       </div>
-      <div className="discover-spacer"></div>
     </section>
   );
 }

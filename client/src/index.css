@@ -1362,70 +1362,86 @@ nav {
    ========================================================= */
 
 .discover {
-  background:
-    linear-gradient(
-      160deg,
-      #4fd4dc 0%,
-      var(--teal-1) 45%,
-      var(--teal-2) 100%
-    );
-
-  padding: 80px 0 0;
+  background: #80d0c6;
 
   color: #fff;
 
   text-align: center;
+
+  padding-bottom: 70px;
+
+  border-bottom-left-radius: 90px;
+}
+
+
+/* ---------- DARK BLUE TOP BAND ---------- */
+
+.discover-top {
+  background: linear-gradient(180deg, #348aa3 0%, #255d7a 100%);
+
+  padding: 72px 0 64px;
 }
 
 .discover h2 {
-  font-family: "Baloo 2", sans-serif;
+  font-family: "Montserrat", sans-serif;
 
-  font-size: clamp(2.1rem, 4.4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 2.6rem);
 
   font-weight: 700;
 
-  margin-bottom: 8px;
+  color: #fff;
 
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
+
+  line-height: 1.2;
+
+  margin-bottom: 6px;
 }
 
 .discover .sub {
-  font-family: "Nunito", sans-serif;
+  font-family: "Montserrat", sans-serif;
 
-  color: #e3faf8;
-
-  font-size: 1.02rem;
+  font-size: 1rem;
 
   font-weight: 600;
 
-  margin-bottom: 36px;
+  color: #123f60;
+
+  margin-bottom: 26px;
 }
 
-.search-bar {
-  max-width: 600px;
 
-  margin: 0 auto 56px;
+/* ---------- SEARCH BAR ---------- */
+
+.search-bar {
+  width: 100%;
+
+  max-width: 736px;
+
+  margin: 0 auto;
 
   background: #fff;
 
-  border-radius: 50px;
+  border-radius: 60px;
 
   display: flex;
 
   align-items: center;
 
-  padding: 6px 6px 6px 24px;
+  gap: 12px;
 
-  box-shadow: 0 20px 45px rgba(0, 40, 45, 0.22);
+  padding: 7px 7px 7px 26px;
 
-  gap: 10px;
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.28),
+    0 14px 34px rgba(0, 30, 50, 0.25);
 }
 
 .search-bar svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 
-  color: #9aa0a6;
+  color: #444;
 
   flex-shrink: 0;
 }
@@ -1433,21 +1449,29 @@ nav {
 .search-bar input {
   flex: 1;
 
+  min-width: 0;
+
   border: none;
 
   outline: none;
 
-  font-size: 0.95rem;
+  background: transparent;
 
-  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
+
+  font-size: 1rem;
 
   color: #333;
 
   padding: 12px 0;
 }
 
+.search-bar input::placeholder {
+  color: #6f7480;
+}
+
 .search-bar button {
-  background: var(--teal-2);
+  background: #82d1c7;
 
   color: #fff;
 
@@ -1455,13 +1479,13 @@ nav {
 
   border-radius: 40px;
 
-  padding: 13px 30px;
+  padding: 14px 40px;
 
-  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
 
-  font-family: "Nunito", sans-serif;
+  font-weight: 600;
 
-  font-size: 0.92rem;
+  font-size: 0.95rem;
 
   cursor: pointer;
 
@@ -1469,61 +1493,97 @@ nav {
 }
 
 .search-bar button:hover {
-  background: #175f5c;
+  background: #6bc2b7;
 }
+
+
+/* ---------- CARDS ---------- */
 
 .topic-cards {
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.55fr;
 
-  max-width: 920px;
+  gap: 16px;
 
-  margin: 0 auto;
+  max-width: 900px;
 
-  gap: 0;
+  margin: -30px auto 0;
 
-  transform: translateY(46px);
+  position: relative;
 
   text-align: left;
 }
 
 .tcard {
-  padding: 30px 30px 34px;
-
   position: relative;
 
-  min-height: 260px;
+  display: flex;
 
-  box-shadow: 0 25px 50px rgba(0, 30, 35, 0.25);
+  flex-direction: column;
+
+  min-height: 300px;
+
+  padding: 24px 24px 26px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 12px 30px rgba(0, 40, 55, 0.18);
 }
 
 .tcard.web {
   background: #fff;
 
-  color: #1c1c24;
-
-  border-radius: 16px 0 0 16px;
+  color: #111;
 }
 
 .tcard.finance {
-  background:
-    linear-gradient(
-      160deg,
-      rgba(255, 255, 255, 0.22),
-      rgba(255, 255, 255, 0.05)
-    );
-
-  backdrop-filter: blur(6px);
-
   color: #fff;
 
-  border-radius: 0 16px 16px 0;
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-
-  border-left: none;
+  background:
+    linear-gradient(rgba(44, 126, 148, 0.8), rgba(44, 126, 148, 0.8)),
+    url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=70")
+      center / cover no-repeat;
 }
+
+.tcard h3 {
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 1.25rem;
+
+  font-weight: 700;
+
+  margin-bottom: 10px;
+}
+
+.tcard.web h3 {
+  color: #111;
+}
+
+.tcard p {
+  font-family: "Open Sans", sans-serif;
+
+  font-size: 0.9rem;
+
+  line-height: 1.55;
+
+  margin-bottom: 16px;
+}
+
+.tcard.web p {
+  color: #4a4d57;
+
+  max-width: 300px;
+}
+
+.tcard.finance p {
+  color: #fff;
+
+  max-width: 440px;
+}
+
+
+/* ---------- BADGES ---------- */
 
 .tcard .badge {
   position: absolute;
@@ -1531,168 +1591,106 @@ nav {
   top: 22px;
   right: 22px;
 
-  font-size: 0.76rem;
-
-  font-weight: 800;
-
-  font-family: "Nunito", sans-serif;
-
-  padding: 4px 11px;
-
-  border-radius: 8px;
-
-  color: #fff;
-}
-
-.tcard.web .badge {
-  background: #3fb0e0;
-}
-
-.tcard.finance .badge {
-  background: #5a4fd6;
-}
-
-.tcard h3 {
-  font-family: "Baloo 2", sans-serif;
-
-  font-size: 1.25rem;
-
-  font-weight: 700;
-
-  margin-bottom: 9px;
-}
-
-.tcard p {
-  font-family: "Nunito", sans-serif;
-
-  font-size: 0.86rem;
-
-  line-height: 1.55;
-
-  opacity: 0.88;
-
-  max-width: 250px;
-
-  margin-bottom: 16px;
-}
-
-.tcard .learn {
-  display: inline-block;
-
-  background: var(--teal-2);
-
-  color: #fff;
-
-  font-weight: 700;
-
-  font-family: "Nunito", sans-serif;
-
-  font-size: 0.8rem;
-
-  padding: 10px 20px;
-
-  border-radius: 22px;
-}
-
-.web-illustration {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin-top: 6px;
-}
-
-.web-illustration .browser {
-  flex: 1;
-
-  border: 1.5px solid #e6e8f0;
-
-  border-radius: 8px;
-
-  padding: 10px;
-}
-
-.web-illustration .browser .dots {
-  display: flex;
-
-  gap: 4px;
-
-  margin-bottom: 8px;
-}
-
-.web-illustration .browser .dots span {
-  width: 5px;
-  height: 5px;
-
-  border-radius: 50%;
-
-  background: #dcdfe8;
-}
-
-.web-illustration .browser .bar {
-  height: 5px;
-
-  background: #eef0f6;
-
-  border-radius: 3px;
-
-  margin-bottom: 5px;
-}
-
-.web-illustration .browser .bar.short {
-  width: 60%;
-}
-
-.web-illustration .avatars {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 6px;
-}
-
-.web-illustration .avatars .dot {
-  width: 26px;
-  height: 26px;
-
-  border-radius: 50%;
-
-  background: #3fb0e0;
+  width: 24px;
+  height: 24px;
 
   display: flex;
 
   align-items: center;
 
   justify-content: center;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  border-radius: 4px;
+
+  color: #fff;
 }
 
-.web-illustration .avatars .dot svg {
-  width: 13px;
-  height: 13px;
+.tcard.web .badge {
+  background: #12a4ec;
+}
 
-  stroke: #fff;
+.tcard.finance .badge {
+  background: #5b4be0;
+}
+
+
+/* ---------- WEB DESIGN ILLUSTRATION ---------- */
+
+.web-art {
+  margin-top: 6px;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.web-art svg {
+  width: 100%;
+
+  max-width: 300px;
+
+  height: auto;
+
+  display: block;
+}
+
+
+/* ---------- FINANCE CARD ---------- */
+
+.tcard .learn {
+  align-self: flex-start;
+
+  background: #82d1c7;
+
+  color: #fff;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-weight: 600;
+
+  font-size: 0.88rem;
+
+  padding: 11px 24px;
+
+  border-radius: 24px;
+
+  transition: background 0.2s;
+}
+
+.tcard .learn:hover {
+  background: #6bc2b7;
 }
 
 .finance-foot {
+  margin-top: auto;
+
+  padding-top: 28px;
+
   display: flex;
 
   align-items: center;
 
   justify-content: space-between;
+}
 
-  margin-top: 20px;
+.finance-foot .share {
+  display: flex;
+
+  align-items: center;
 }
 
 .finance-foot .share-label {
-  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
 
-  font-size: 0.78rem;
+  font-size: 0.95rem;
 
-  opacity: 0.85;
-
-  margin-right: 8px;
+  margin-right: 14px;
 }
 
 .finance-foot .socials {
@@ -1700,27 +1698,33 @@ nav {
 
   align-items: center;
 
-  gap: 8px;
+  gap: 10px;
 }
 
 .finance-foot .socials a {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
 
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.25);
+  background: #82d1c7;
 
   display: flex;
 
   align-items: center;
 
   justify-content: center;
+
+  transition: background 0.2s;
+}
+
+.finance-foot .socials a:hover {
+  background: #6bc2b7;
 }
 
 .finance-foot .socials svg {
-  width: 11px;
-  height: 11px;
+  width: 14px;
+  height: 14px;
 
   fill: #fff;
 }
@@ -1734,40 +1738,57 @@ nav {
   align-items: center;
 
   justify-content: center;
+
+  cursor: pointer;
 }
 
 .finance-foot .bookmark svg {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
+
+  fill: none;
 
   stroke: #fff;
 
-  fill: none;
+  stroke-width: 1.8;
+
+  stroke-linejoin: round;
 }
 
-.discover-spacer {
-  height: 46px;
 
-  background: #fff;
-}
+/* ---------- RESPONSIVE ---------- */
 
-@media (max-width: 700px) {
+@media (max-width: 760px) {
+  .discover {
+    border-bottom-left-radius: 60px;
+
+    padding-bottom: 50px;
+  }
+
+  .discover-top {
+    padding: 56px 0 56px;
+  }
+
+  .search-bar {
+    padding: 6px 6px 6px 18px;
+  }
+
+  .search-bar button {
+    padding: 12px 22px;
+  }
+
   .topic-cards {
     grid-template-columns: 1fr;
 
-    transform: translateY(30px);
+    margin-top: -24px;
   }
 
-  .tcard.web {
-    border-radius: 16px 16px 0 0;
+  .tcard {
+    min-height: auto;
   }
 
-  .tcard.finance {
-    border-radius: 0 0 16px 16px;
-
-    border-left: 1px solid rgba(255, 255, 255, 0.25);
-
-    border-top: none;
+  .tcard.web p {
+    max-width: 100%;
   }
 }
 
@@ -1779,7 +1800,7 @@ nav {
 
 .policies {
   background: #fff;
-  padding: 0 0 0;
+  padding: 40px 0px;
 }
 
 .policies-grid {
@@ -2029,16 +2050,50 @@ footer {
 }
 
 
-@media (max-width: 700px) {
+/* ---------- TABLET + MOBILE: everything centered ---------- */
+
+@media (max-width: 1069px) {
   footer {
-    padding: 14px 20px 14px 76px;
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 16px;
+
+    /* equal side padding keeps the content truly centered
+       and clear of the fixed cookie button */
+    padding: 20px 76px;
   }
 
   .foot-left {
-    gap: 8px 16px;
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 8px 20px;
   }
 
   .foot-social {
-    gap: 12px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 18px 72px;
+  }
+
+  .foot-left {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .foot-social {
+    gap: 14px;
   }
 }
