@@ -6,13 +6,14 @@ import Contact from "./components/Contact.jsx";
 // import Discover from "./components/Discover.jsx";
 import Footer from "./components/Footer.jsx";
 import Policies from "./components/Policies.jsx";
-import { useLayoutEffect } from "react";
+import Benefits from "./components/Benefits.jsx";
+import Locations from "./components/Locations.jsx";
 
 // Jump back to the top whenever the page (route) changes
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, [pathname]);
   return null;
 }
@@ -37,12 +38,15 @@ export default function App() {
           }
         />
 
-        {/* Contact Us page: only Contact + Policies (Navbar and Footer are shared above/below) */}
+        {/* Contact Us page: Contact, Benefits + Process, Locations, Policies
+            (Navbar and Footer are shared above/below) */}
         <Route
           path="/contact"
           element={
             <>
               <Contact />
+              <Benefits />
+              <Locations />
               <Policies />
             </>
           }

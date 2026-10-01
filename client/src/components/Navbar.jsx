@@ -49,7 +49,7 @@ export default function Navbar() {
           <div className="nav-right">
             <div className="expert-btn">
               <span className="label">Talk to an Expert</span>
-              <span className="num">1-877-247-7421</span>
+              <span className="num">+92 300 1234567</span>
             </div>
             <Link to="/contact" className="btn-solid">
               Contact Us

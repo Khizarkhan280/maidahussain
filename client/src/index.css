@@ -1716,6 +1716,320 @@ nav {
 
 
 /* =========================================================
+   CONTACT PAGE EXTRAS: BENEFITS / PROCESS + LOCATIONS
+   (paste into index.css, e.g. just above the POLICIES section)
+   ========================================================= */
+
+/* ---------- shared heading pieces ---------- */
+
+.sec-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--accent);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.sec-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--cyan));
+}
+
+.benefits h2,
+.locations h2 {
+  font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 34px;
+}
+
+
+/* =========================================================
+   BENEFITS + PROCESS
+   ========================================================= */
+
+.benefits {
+  position: relative;
+
+  padding: 96px 0;
+
+  border-top: 1px solid var(--line);
+
+  background:
+    radial-gradient(640px 420px at 8% 0%, rgba(53, 228, 182, 0.1), transparent 65%),
+    var(--bg-0);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  align-items: start;
+}
+
+
+/* ---------- benefits checklist ---------- */
+
+.benefit-list {
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 36px;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: #e6f3f1;
+}
+
+.bcheck {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 6px 16px -6px var(--glow);
+}
+
+.bcheck svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: #04201c;
+  stroke-width: 3;
+}
+
+
+/* ---------- process steps ---------- */
+
+.process-list {
+  list-style: none;
+}
+
+.process-list li {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+
+  padding: 26px 0;
+
+  border-bottom: 1px solid var(--line);
+
+  transition: border-color 0.3s ease;
+}
+
+.process-list li:first-child {
+  padding-top: 6px;
+}
+
+.process-list li:hover {
+  border-bottom-color: rgba(53, 228, 182, 0.55);
+}
+
+.pnum {
+  min-width: 34px;
+
+  font-family: var(--font-head);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+
+  background: linear-gradient(135deg, var(--accent), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.process-list p {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #e6f3f1;
+}
+
+
+/* =========================================================
+   LOCATIONS
+   ========================================================= */
+
+.locations {
+  position: relative;
+
+  padding: 96px 0;
+
+  border-top: 1px solid var(--line);
+
+  background:
+    radial-gradient(700px 420px at 100% 0%, rgba(58, 215, 232, 0.08), transparent 65%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-0));
+}
+
+.locations h2 {
+  margin-bottom: 18px;
+}
+
+.locations-head p {
+  max-width: 560px;
+  margin-bottom: 44px;
+
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.loc-card {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 250px;
+  padding: 32px 26px 28px;
+
+  border: 1px solid var(--line);
+  border-radius: 20px;
+
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* thin accent line along the top, like the original cards */
+.loc-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--cyan));
+}
+
+.loc-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(53, 228, 182, 0.4);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.85), 0 0 44px -14px var(--glow);
+}
+
+.loc-tag {
+  align-self: flex-start;
+
+  padding: 6px 12px;
+
+  border: 1px solid rgba(53, 228, 182, 0.3);
+  border-radius: 8px;
+  background: rgba(53, 228, 182, 0.1);
+
+  color: var(--accent);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  margin-bottom: 18px;
+}
+
+.loc-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.loc-card address {
+  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .benefits-grid {
+    gap: 56px;
+  }
+
+  .locations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .benefits,
+  .locations {
+    padding: 64px 0;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+}
+
+@media (max-width: 620px) {
+  .locations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .loc-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .benefit-list {
+    grid-template-columns: 1fr;
+  }
+
+  .process-list li {
+    gap: 18px;
+  }
+
+  .pnum {
+    font-size: 2.4rem;
+    min-width: 28px;
+  }
+}
+
+
+/* =========================================================
    POLICIES SECTION (3 rounded glass cards above footer)
    ========================================================= */
 
@@ -1887,7 +2201,8 @@ footer {
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 14px;
 }
@@ -1993,9 +2308,9 @@ footer {
 
 @media (max-width: 1069px) {
   footer {
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: center;
     gap: 16px;
 
