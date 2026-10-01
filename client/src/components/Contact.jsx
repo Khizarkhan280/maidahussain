@@ -1,27 +1,23 @@
 import { useState } from "react";
 
-const Check = () => (
-  <span className="check">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3">
-      <path d="M4 12l5 5L20 6" />
-    </svg>
-  </span>
+const EMPTY_FORM = { fullName: "", company: "", email: "", phone: "", message: "" };
+
+const PhoneIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+  </svg>
 );
 
-const BENEFITS = [
-  "Client Oriented",
-  "Result-driven",
-  "Independent",
-  "Problem-solving",
-  "Competent",
-  "Transparent",
-];
-
-const EMPTY_FORM = { fullName: "", company: "", email: "", phone: "", message: "" };
+const MailIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2" />
+    <path d="m22 7-10 7L2 7" />
+  </svg>
+);
 
 export default function Contact() {
   const [form, setForm] = useState(EMPTY_FORM);
-  const [status, setStatus] = useState({ state: "idle", message: "" }); // idle | loading | success | error
+  const [status, setStatus] = useState({ state: "idle", message: "" });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -49,66 +45,37 @@ export default function Contact() {
 
   return (
     <section className="contact-banner" id="contact">
-      <div className="contact-top">
-        <div className="contact-tag">CONTACT US</div>
-      </div>
       <div className="contact-grid">
         <div className="contact-left">
+          <div className="contact-eyebrow">CONTACT 247 LABS</div>
           <h2>Let's build something great together.</h2>
           <p>
-            We're happy to answer any questions you may have and help you determine which of our services best
-            fits your needs.
-          </p>
-          <p>
-            <b>Call us at</b> <a href="tel:18772477421">1-877-247-7421</a> or email{" "}
-            <a href="mailto:hello@247labs.com">hello@247labs.com</a>
+            Whether you have questions about our services, need assistance, or simply want to explore
+            potential collaborations, we're here to listen and provide the support you need.
           </p>
 
-          <div className="benefits-title">Your Benefits:</div>
-          <div className="benefits">
-            {BENEFITS.map((b) => (
-              <div key={b}>
-                <Check />
-                {b}
-              </div>
-            ))}
-          </div>
+          <a className="contact-card" href="tel:18772477421">
+            <span className="icon-box">
+              <PhoneIcon />
+            </span>
+            <span className="info">
+              <span className="lbl">CALL US AT</span>
+              <span className="val">1-877-247-7421</span>
+            </span>
+          </a>
 
-          <div className="steps">
-            <div className="step">
-              <span className="n">1</span>
-              <p>We schedule a call at your convenience</p>
-            </div>
-            <span className="arrow">›</span>
-            <div className="step">
-              <span className="n">2</span>
-              <p>We do a discovery and consulting meeting</p>
-            </div>
-            <span className="arrow">›</span>
-            <div className="step">
-              <span className="n">3</span>
-              <p>We prepare a proposal</p>
-            </div>
-          </div>
-
-          <div className="offices">
-            <div>
-              ✓ 170 University Ave,
-              <br />
-              Toronto, Ontario
-              <br />
-              M5H 3B3
-            </div>
-            <div>
-              ✓ 95 Mural St.
-              <br />
-              Richmond Hill, Ontario
-              <br />
-              L4B 3G2
-            </div>
-          </div>
+          <a className="contact-card" href="mailto:hello@247labs.com">
+            <span className="icon-box">
+              <MailIcon />
+            </span>
+            <span className="info">
+              <span className="lbl">EMAIL US</span>
+              <span className="val">hello@247labs.com</span>
+            </span>
+          </a>
         </div>
 
+        {/* ---- form card: unchanged ---- */}
         <div className="contact-form-card">
           <h3>Schedule A Free Consultation</h3>
           <div className="card-divider">

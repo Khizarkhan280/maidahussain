@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="wrap hero-inner">
-        <div className="eyebrow">Your trusted Canadian partner for</div>
+        <div className="eyebrow">Your trusted Pakistani partner for</div>
         <h1>Custom software, AI, and digital transformation built for enterprises and regulated industries.</h1>
         <p>
           247 Labs engineers the software, AI systems, and digital platforms that large organizations depend on to

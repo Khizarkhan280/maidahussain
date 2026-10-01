@@ -38,6 +38,7 @@ export default function Navbar() {
           </div>
           <div className="navlinks">
             <a href="#" className="has-chevron">Services</a>
+            <a href="#" className="has-chevron">Products</a>
             <a href="#" className="has-chevron">Company</a>
             <a href="#" className="has-chevron">Industries</a>
             <a href="#" className="has-chevron">Resources</a>

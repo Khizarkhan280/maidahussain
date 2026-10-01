@@ -1020,45 +1020,18 @@ nav {
    ========================================================= */
 
 .contact-banner {
+  position: relative;
+  color: #fff;
+  padding: 90px 0;
+
   background:
     linear-gradient(
-      135deg,
-      #5a1878 0%,
-      #2c123f 38%,
-      #0c0f1c 80%
-    );
-
-  padding: 60px 0 0;
-
-  color: #fff;
-
-  position: relative;
-}
-
-.contact-top {
-  max-width: 1240px;
-
-  margin: 0 auto;
-
-  padding: 0 32px 10px;
-}
-
-.contact-tag {
-  display: inline-block;
-
-  background: transparent;
-
-  border: none;
-
-  font-size: 0.7rem;
-
-  font-weight: 700;
-
-  letter-spacing: 0.08em;
-
-  padding: 4px 0 28px;
-
-  color: #e7d6f0;
+      90deg,
+      rgba(12, 12, 44, 0.97) 0%,
+      rgba(16, 16, 52, 0.9) 45%,
+      rgba(40, 40, 82, 0.72) 100%
+    ),
+    url("./assets/HeroBg.avif") center center / cover no-repeat;
 }
 
 .contact-grid {
@@ -1087,149 +1060,91 @@ nav {
   line-height: 1.18;
 }
 
-.contact-left p {
-  color: #d7d9e6;
 
-  max-width: 460px;
+/* ---------- CONTACT LEFT (NEW DESIGN) ---------- */
 
-  margin-bottom: 16px;
-
-  line-height: 1.55;
-
-  font-size: 0.92rem;
-}
-
-.contact-left b {
-  color: #fff;
-}
-
-.contact-left a {
-  text-decoration: underline;
-}
-
-.benefits-title {
+.contact-eyebrow {
+  color: #c4a1ff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
   font-weight: 700;
-
-  margin-bottom: 10px;
-
-  font-size: 0.94rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
 }
 
-.benefits {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 7px 40px;
-
-  margin-bottom: 22px;
-}
-
-.benefits div {
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  font-size: 0.86rem;
-
-  color: #e8e9f1;
-}
-
-.check {
-  width: 16px;
-  height: 16px;
-
-  border-radius: 50%;
-
-  background: var(--purple);
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  flex-shrink: 0;
-}
-
-.check svg {
-  width: 9px;
-  height: 9px;
-}
-
-.steps {
-  display: flex;
-
-  gap: 16px;
-
-  margin-bottom: 22px;
-
-  flex-wrap: wrap;
-
-  align-items: flex-start;
-}
-
-.steps .step {
-  display: flex;
-
-  gap: 10px;
-
-  align-items: flex-start;
-
-  max-width: 170px;
-}
-
-.steps .step .n {
-  font-size: 1.5rem;
-
+.contact-left h2 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
   font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  max-width: 560px;
+  margin-bottom: 24px;
+}
 
+.contact-left > p {
+  max-width: 560px;
+  margin-bottom: 36px;
+  color: #b9bbcf;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 520px;
+  margin-bottom: 18px;
+  padding: 18px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(15, 15, 50, 0.35);
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-card:hover {
+  background: rgba(120, 19, 124, 0.18);
+  border-color: var(--purple-light);
+  transform: translateY(-2px);
+}
+
+.contact-card .icon-box {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-card .icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-card .lbl {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: #b9bbcf;
+}
+
+.contact-card .val {
+  font-size: 1.2rem;
+  font-weight: 700;
   color: #fff;
 }
 
-.steps .step p {
-  color: #d7d9e6;
 
-  font-size: 0.82rem;
-
-  margin: 0;
-
-  line-height: 1.35;
-}
-
-.steps .arrow {
-  align-self: center;
-
-  color: #8a8da0;
-
-  font-size: 1.1rem;
-
-  margin-top: 6px;
-}
-
-.offices {
-  display: flex;
-
-  gap: 44px;
-
-  flex-wrap: wrap;
-
-  padding-bottom: 50px;
-}
-
-.offices div {
-  display: flex;
-
-  gap: 8px;
-
-  font-size: 0.86rem;
-
-  color: #e8e9f1;
-
-  line-height: 1.4;
-}
+/* ---------- CONTACT FORM CARD (UNCHANGED) ---------- */
 
 .contact-form-card {
   background: #fff;
@@ -1419,12 +1334,25 @@ nav {
 }
 
 @media (max-width: 860px) {
+  .contact-banner {
+    padding: 60px 0;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
   .contact-form-card {
     margin-top: 0;
+  }
+
+  .contact-card {
+    padding: 14px 18px;
+    gap: 16px;
+  }
+
+  .contact-card .val {
+    font-size: 1.05rem;
   }
 }
 
