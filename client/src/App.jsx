@@ -8,12 +8,13 @@ import Footer from "./components/Footer.jsx";
 import Policies from "./components/Policies.jsx";
 import Benefits from "./components/Benefits.jsx";
 import Locations from "./components/Locations.jsx";
+import { useLayoutEffect } from "react";
 
 // Jump back to the top whenever the page (route) changes
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname]);
   return null;
 }
