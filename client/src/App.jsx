@@ -11,7 +11,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <Contact />
-      <Discover />
+      {/* <Discover /> */}
       <Policies />
       <Footer />
     </>

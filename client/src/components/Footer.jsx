@@ -24,9 +24,9 @@ export default function Footer() {
 
       <div className="foot-left">
         <span>@ Copyright 2004-2024 247 Labs</span>
-        <a href="#">Terms &amp; Conditions</a>
+        {/* <a href="#">Terms &amp; Conditions</a>
         <a href="#">Privacy Policy</a>
-        <a href="#">Refund Policy</a>
+        <a href="#">Refund Policy</a> */}
       </div>
 
       <div className="foot-social">
