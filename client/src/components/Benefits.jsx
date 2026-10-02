@@ -1,3 +1,5 @@
+import WaveField from "./WaveField";
+
 const BENEFITS = [
   "Client oriented",
   "Independent",
@@ -22,6 +24,7 @@ const CheckIcon = () => (
 export default function Benefits() {
   return (
     <section className="benefits">
+      <WaveField/> 
       <div className="wrap benefits-grid">
         {/* ---------- left: benefits ---------- */}
         <div className="benefits-col">

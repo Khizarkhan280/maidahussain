@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CONTACT } from "../config/contact";
+import WaveField from "./WaveField";
 
 const EMPTY_FORM = { fullName: "", company: "", email: "", phone: "", message: "" };
 
@@ -74,6 +75,7 @@ export default function Contact() {
 
   return (
     <section className="contact-banner" id="contact">
+      <WaveField/> 
       <div className="contact-grid">
         <div className="contact-left">
           <div className="contact-eyebrow">CONTACT 247 LABS</div>

@@ -1,3 +1,5 @@
+import WaveField from "./WaveField";
+
 const LOCATIONS = [
   {
     country: "Canada",
@@ -24,6 +26,7 @@ const LOCATIONS = [
 export default function Locations() {
   return (
     <section className="locations">
+      <WaveField/> 
       <div className="wrap">
         <div className="locations-head">
           <div className="sec-eyebrow">Our locations</div>

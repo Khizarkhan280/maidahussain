@@ -1,3 +1,5 @@
+import WaveField from "./WaveField";
+
 const POLICIES = [
   {
     title: "Terms & Conditions",
@@ -22,6 +24,7 @@ const POLICIES = [
 export default function Policies() {
   return (
     <section className="policies">
+      <WaveField/> 
       <div className="policies-grid">
         {POLICIES.map((p) => (
           <article className="policy-card" key={p.title}>

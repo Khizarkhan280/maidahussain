@@ -104,19 +104,27 @@ section[id] {
    SHARED: WAVE TEXTURE LAYER
    ========================================================= */
 
+/* the static image layer is replaced by the animated canvas */
 .hero::before,
 .contact-banner::before,
 .policies::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--waves) center / cover no-repeat;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
-  mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  display: none;
 }
 
+.wave-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.wave-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
 /* =========================================================
    SHARED: BUTTONS
@@ -1880,6 +1888,8 @@ nav {
 
 .benefits {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
   padding: 96px 0;
 
@@ -1996,6 +2006,8 @@ nav {
 
 .locations {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
   padding: 96px 0;
 
