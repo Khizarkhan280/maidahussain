@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { createWave } from "./waveEngine";
 
-export default function WaveField({ rows = 0, intensity = 0.85, opacity = 0.7, dots = 1 }) {
+export default function WaveField({ rows = 0, intensity = 0.4, opacity = 1.3, dots = 3 }) {
   const boxRef = useRef(null);
 
   useEffect(() => {
